@@ -1,0 +1,77 @@
+/* Main container */
+.optionset-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f8f9fa, #ebeff3); /* Soft gradient */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Option buttons */
+.option-button {
+  flex: 1;
+  min-width: 140px;
+  max-width: 220px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  color: #333;
+  background: linear-gradient(135deg, #d1e8ff, #b8d6f0); /* Soft blue */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  text-transform: capitalize;
+}
+
+/* Hover effect */
+.option-button:hover {
+  background: linear-gradient(135deg, #b8d6f0, #9ec4e0);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Selected button with different colors */
+.option-button.selected:nth-child(1) { background: #ffadad; color: white; } /* Soft Red */
+.option-button.selected:nth-child(2) { background: #ffcf80; color: white; } /* Soft Orange */
+.option-button.selected:nth-child(3) { background: #a0e3a0; color: white; } /* Soft Green */
+.option-button.selected:nth-child(4) { background: #80d4ff; color: white; } /* Soft Blue */
+.option-button.selected:nth-child(5) { background: #d0b3ff; color: white; } /* Soft Purple */
+.option-button.selected:nth-child(6) { background: #ffb3d1; color: white; } /* Soft Pink */
+
+/* Disabled button */
+.option-button.disabled {
+  background: linear-gradient(135deg, #e0e0e0, #d6d6d6);
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Ripple effect on button click */
+.option-button:active::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  animation: ripple 0.4s ease-out;
+}
+
+@keyframes ripple {
+  to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+  }
+}
